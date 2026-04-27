@@ -36,45 +36,55 @@ body::before {
   text-align: center;
 }
 
+/* タイトル */
 .title {
   font-size: 24px;
   color: #4a2f1a;
-  letter-spacing: 2px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
-.section-title {
+/* サブ説明 */
+.subtitle {
   font-size: 13px;
   color: #7a5a3a;
-  margin: 18px 0 8px;
+  margin-bottom: 20px;
 }
 
-.btn {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px 0;
-  padding: 14px;
-  border-radius: 12px;
+/* メインボタン（超重要） */
+.main-btn {
+  display: block;
+  margin: 18px 0;
+  padding: 20px;
+  border-radius: 16px;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(135deg, #b9935a, #8c6a3d);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* 補助ボタン */
+.btn {
+  display: block;
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 14px;
   color: #3b2a1e;
-  background: linear-gradient(145deg, #fff8f0, #e9d7c2);
-  box-shadow: 5px 5px 12px rgba(0,0,0,0.25),
-              -3px -3px 8px rgba(255,255,255,0.8);
+  background: #f3e2cf;
 }
 
-.arrow {
-  opacity: 0.5;
-}
-
+/* 補足 */
 .note {
-  margin-top: 18px;
+  margin-top: 15px;
   font-size: 12px;
   color: #4a2f1a;
   line-height: 1.6;
 }
 
+/* 署名 */
 .signature {
   position: fixed;
   bottom: 18px;
@@ -89,44 +99,32 @@ body::before {
 
 <div class="container">
 
-  <div class="title">eyeサポテストメール</div>
+  <div class="title">メール確認</div>
+  <div class="subtitle">下のボタンを押して、そのまま送信してください</div>
 
-  <div class="section-title">メールアプリ</div>
-
-  <a class="btn" href="mailto:customer-desk@hirocon-net.co.jp?subject=eyeサポテストメール&body=レンズを使用される方のお名前（漢字）%0A⇒%0A%0Aこちらはメールアドレス確認用のメールでございます。%0Aお名前をご入力いただき、そのまま送信をお願いいたします。">
-    iPhone純正メール <span class="arrow">›</span>
-  </a>
-
-  <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=customer-desk@hirocon-net.co.jp&su=eyeサポテストメール&body=レンズを使用される方のお名前（漢字）%0A⇒%0A%0Aこちらはメールアドレス確認用のメールでございます。%0Aお名前をご入力いただき、そのまま送信をお願いいたします。" target="_blank">
-    Gmail <span class="arrow">›</span>
-  </a>
-
-  <a class="btn" href="https://compose.mail.yahoo.co.jp/?to=customer-desk@hirocon-net.co.jp&subject=eyeサポテストメール&body=レンズを使用される方のお名前（漢字）%0A⇒%0A%0Aこちらはメールアドレス確認用のメールでございます。%0Aお名前をご入力いただき、そのまま送信をお願いいたします。" target="_blank">
-    Yahoo!メール <span class="arrow">›</span>
-  </a>
-
-  <a class="btn" href="https://outlook.live.com/mail/0/deeplink/compose?to=customer-desk@hirocon-net.co.jp&subject=eyeサポテストメール&body=レンズを使用される方のお名前（漢字）%0A⇒%0A%0Aこちらはメールアドレス確認用のメールでございます。%0Aお名前をご入力いただき、そのまま送信をお願いいたします。" target="_blank">
-    Outlook <span class="arrow">›</span>
-  </a>
-
-  <div class="section-title">キャリアメール</div>
-
-  <a class="btn" href="mailto:customer-desk@hirocon-net.co.jp?subject=eyeサポテストメール&body=レンズを使用される方のお名前（漢字）%0A⇒%0A%0Aこちらはメールアドレス確認用のメールでございます。%0Aお名前をご入力いただき、そのまま送信をお願いいたします。">
-    ドコモメール <span class="arrow">›</span>
-  </a>
-
-  <a class="btn" href="mailto:customer-desk@hirocon-net.co.jp?subject=eyeサポテストメール&body=レンズを使用される方のお名前（漢字）%0A⇒%0A%0Aこちらはメールアドレス確認用のメールでございます。%0Aお名前をご入力いただき、そのまま送信をお願いいたします。">
-    auメール <span class="arrow">›</span>
-  </a>
-
-  <a class="btn" href="mailto:customer-desk@hirocon-net.co.jp?subject=eyeサポテストメール&body=レンズを使用される方のお名前（漢字）%0A⇒%0A%0Aこちらはメールアドレス確認用のメールでございます。%0Aお名前をご入力いただき、そのまま送信をお願いいたします。">
-    ソフトバンクメール <span class="arrow">›</span>
+  <!-- ★これだけ押せばOK -->
+  <a class="main-btn" href="mailto:customer-desk@hirocon-net.co.jp?subject=eyeサポテストメール&body=レンズを使用される方のお名前（漢字）%0A⇒%0A%0Aこちらはメールアドレス確認用のメールでございます。%0Aお名前をご入力いただき、そのまま送信をお願いいたします。">
+    メールを送る
   </a>
 
   <div class="note">
-    件名・本文はあらかじめ入力されております。<br>
-    お名前をご入力のうえ、そのまま送信をお願いいたします。
+    ※通常はこちらのボタンのみご利用ください
   </div>
+
+  <!-- うまくいかない場合 -->
+  <div class="subtitle" style="margin-top:20px;">うまく開かない場合はこちら</div>
+
+  <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=customer-desk@hirocon-net.co.jp&su=eyeサポテストメール&body=レンズを使用される方のお名前（漢字）%0A⇒%0A%0Aこちらはメールアドレス確認用のメールでございます。%0Aお名前をご入力いただき、そのまま送信をお願いいたします。" target="_blank">
+    Gmail
+  </a>
+
+  <a class="btn" href="https://compose.mail.yahoo.co.jp/?to=customer-desk@hirocon-net.co.jp&subject=eyeサポテストメール&body=レンズを使用される方のお名前（漢字）%0A⇒%0A%0Aこちらはメールアドレス確認用のメールでございます。%0Aお名前をご入力いただき、そのまま送信をお願いいたします。" target="_blank">
+    Yahooメール（ブラウザ）
+  </a>
+
+  <a class="btn" href="https://outlook.live.com/mail/0/deeplink/compose?to=customer-desk@hirocon-net.co.jp&subject=eyeサポテストメール&body=レンズを使用される方のお名前（漢字）%0A⇒%0A%0Aこちらはメールアドレス確認用のメールでございます。%0Aお名前をご入力いただき、そのまま送信をお願いいたします。" target="_blank">
+    Outlook
+  </a>
 
 </div>
 
