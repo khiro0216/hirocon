@@ -62,6 +62,7 @@ body::before {
   background: linear-gradient(145deg, #fff8f0, #e9d7c2);
   box-shadow: 5px 5px 12px rgba(0,0,0,0.25),
               -3px -3px 8px rgba(255,255,255,0.8);
+  cursor: pointer;
 }
 
 .arrow {
@@ -85,38 +86,38 @@ body::before {
 </style>
 
 <script>
-// 共通のメール設定
-const mailTo = "customer-desk@hirocon-net.co.jp";
-const mailSubject = "eyeサポテストメール";
-const mailBody = "レンズを使用される方のお名前（漢字）\n⇒\n\nこちらはメールアドレス確認用のメールでございます。\nお名前をご入力いただき、そのまま送信をお願いいたします。";
+// 設定データ
+const config = {
+  to: "customer-desk@hirocon-net.co.jp",
+  subject: "eyeサポテストメール",
+  body: "レンズを使用される方のお名前（漢字）\n⇒\n\nこちらはメールアドレス確認用のメールでございます。\nお名前をご入力いただき、そのまま送信をお願いいたします。"
+};
 
 function openGmail() {
-  const subjectEnc = encodeURIComponent(mailSubject);
-  const bodyEnc = encodeURIComponent(mailBody);
+  const s = encodeURIComponent(config.subject);
+  const b = encodeURIComponent(config.body);
   
-  const app = `googlegmail://co?to=${mailTo}&subject=${subjectEnc}&body=${bodyEnc}`;
-  const web = `https://mail.google.com/mail/?view=cm&fs=1&to=${mailTo}&su=${subjectEnc}&body=${bodyEnc}`;
+  const app = `googlegmail://co?to=${config.to}&subject=${s}&body=${b}`;
+  const web = `https://mail.google.com/mail/?view=cm&fs=1&to=${config.to}&su=${s}&body=${b}`;
 
   window.location.href = app;
-  setTimeout(() => {
-    window.location.href = web;
-  }, 1000);
+  setTimeout(() => { window.location.href = web; }, 1000);
 }
 
 function openYahoo() {
-  const subjectEnc = encodeURIComponent(mailSubject);
-  const bodyEnc = encodeURIComponent(mailBody);
+  const s = encodeURIComponent(config.subject);
+  const b = encodeURIComponent(config.body);
 
-  // 日本のYahoo!メールアプリ用スキームは yjmail://
-  const app = `yjmail://compose?to=${mailTo}&subject=${subjectEnc}&body=${bodyEnc}`;
-  // ブラウザ版URL (ssは件名パラメータ)
-  const web = `https://compose.mail.yahoo.co.jp/?to=${mailTo}&ss=${subjectEnc}&body=${bodyEnc}`;
+  // 日本版Yahoo!メールアプリの起動スキーム yjmail://
+  const app = `yjmail://compose?to=${config.to}&subject=${s}&body=${b}`;
+  // ブラウザ版URL
+  const web = `https://compose.mail.yahoo.co.jp/?to=${config.to}&ss=${s}&body=${b}`;
 
   window.location.href = app;
   
-  // アプリが開かなかった場合の判定
   const start = Date.now();
   setTimeout(() => {
+    // 1.5秒経っても画面が切り替わっていない場合にWeb版へ
     if (Date.now() - start < 2000) {
       window.location.href = web;
     }
@@ -138,13 +139,13 @@ function openYahoo() {
     iPhone純正メール <span class="arrow">›</span>
   </a>
 
-  <a class="btn" href="javascript:void(0)" onclick="openGmail()">
+  <div class="btn" onclick="openGmail()">
     Gmail <span class="arrow">›</span>
-  </a>
+  </div>
 
-  <a class="btn" href="javascript:void(0)" onclick="openYahoo()">
+  <div class="btn" onclick="openYahoo()">
     Yahoo!メール <span class="arrow">›</span>
-  </a>
+  </div>
 
   <a class="btn" href="https://outlook.live.com/mail/0/deeplink/compose?to=customer-desk@hirocon-net.co.jp&subject=eyeサポテストメール&body=レンズを使用される方のお名前（漢字）%0A⇒%0A%0Aこちらはメールアドレス確認用のメールでございます。%0Aお名前をご入力いただき、そのまま送信をお願いいたします。" target="_blank">
     Outlook <span class="arrow">›</span>
